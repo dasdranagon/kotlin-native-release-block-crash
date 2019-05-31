@@ -1,0 +1,9 @@
+platform :ios, '11.0'
+
+target 'iosApp' do
+  use_frameworks!
+
+  pod 'Firebase/Core', '~> 5.20.0'
+  pod 'Firebase/Firestore', '~> 5.20.0'
+
+end
