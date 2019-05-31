@@ -3,7 +3,7 @@ import kotlin.native.concurrent.*
 
 typealias Block = (Any) -> Unit
 
-class Core(var factory: Factory) {
+class Core(val factory: Factory) {
     var listener: Removable? = null
     fun  requestListener() {
         listener = factory.listener(block = {
