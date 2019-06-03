@@ -55,4 +55,6 @@ playground.xcworkspace
 
 #Pods/
 
+.idea/
+
 #*.xcworkspace

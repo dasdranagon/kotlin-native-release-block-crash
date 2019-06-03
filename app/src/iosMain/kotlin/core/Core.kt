@@ -4,11 +4,13 @@ import kotlin.native.concurrent.*
 typealias Block = (Any) -> Unit
 
 class Core(val factory: Factory) {
-    var listener: Removable? = null
+    private var listener: Removable? = null
     fun  requestListener() {
-        listener = factory.listener(block = {
+        val block: Block = {
+            initRuntimeIfNeeded()
             println("success: $it")
-        })
+        }
+        listener = factory.listener(block = block.freeze())
     }
 
     fun releaseListener() {
@@ -24,4 +26,3 @@ interface Factory {
 interface Removable {
     fun remove()
 }
-
